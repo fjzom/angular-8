@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Update Form</h1>
+  <form [formGroup]="updateForm">
+    <div class="form-group">
+      <label>Empl Id</label>
+      <input type="text" class="form-control ng-valid" formControlName="empId">
+      <p *ngIf="updateForm.controls.empId.errors" class="alert alert-danger">This field is required!</p>
+    </div>
+    <div class="form-group">
+      <label>Emp Name</label>
+      <input type="text" class="form-control ng-valid" formControlName="empName">
+      <p *ngIf="updateForm.controls.empName.errors" class="alert alert-danger">This field is required!</p>
+    </div> 
+    <div class="form-group">
+      <label>Age</label>
+      <input type="number" class="form-control ng-valid" formControlName="age">
+      <p *ngIf="updateForm.controls.age.errors" class="alert alert-danger">This field is required!</p>
+    </div> 
+    <button type="submit" (click)="submitted=true">Submit</button>
+  </form>
+<br/>
+  <div [hidden]="!submitted">
+    <h3> Employee Details </h3>
+    <p>Emp Id: {{ updateForm.get('empId').value }} </p>
+    <p>Name: {{ updateForm.get('empName').value }} </p>
+    <p>Age: {{ updateForm.get('age').value }}</p> 
+  </div>
+</div>
+ 
